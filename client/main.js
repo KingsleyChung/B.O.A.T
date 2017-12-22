@@ -7,5 +7,5 @@ import People from '../imports/ui/People.js';
 import App from '../imports/ui/App.js';
 
 Meteor.startup(() => {
-    render(<App />, document.getElementById('render-target'));
+    render(<People />, document.getElementById('render-target'));
 });

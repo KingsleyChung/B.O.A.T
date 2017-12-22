@@ -38,8 +38,9 @@ body {
     
     width: 400px;
     border-style: outset;
-    border-width: 2px;
+    border-width: 1px;
     border-radius: 4%;
+    box-shadow: 4px 4px 2px #888888;
 }
 
 .people-icon {
