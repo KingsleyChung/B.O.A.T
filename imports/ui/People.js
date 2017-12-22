@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Peoples } from '../api/peoples.js';
+import { Peoples } from '../api/collection.js';
 
 class People extends Component {
     renderPeoples() {
@@ -19,7 +19,7 @@ class People extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="page-container">
                 <div className="title-cover">
                     <h1 className="title-text">People</h1>
                 </div>

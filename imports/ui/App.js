@@ -1,6 +1,6 @@
 import React ,{ Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Apps } from '../api/apps.js'
+import { Apps } from '../api/collection.js'
 
 class App extends Component {
     render() {

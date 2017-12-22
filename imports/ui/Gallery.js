@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
 
-import { Apps } from '../api/apps.js';
+import { Apps } from '../api/collection.js';
 
 import App from './App.js';
 
@@ -18,7 +18,7 @@ class Gallery extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="page-container">
                 <div className="title-cover">
                     <h1 className="title-text">Gallery</h1>
                 </div>
