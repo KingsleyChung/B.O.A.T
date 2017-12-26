@@ -17,7 +17,7 @@ class MainBody extends Component {
     );
     return (
         <div className="container">
-            <video className="video-backgroud" preload="auto" loop="" autoplay="" muted="" id="bg_video" poster="stellaragency.com/themes/gostellar/images/stellar-video-background-poster.png">
+            <video className="video-backgroud" preload="auto" loop="" autoplay="true" muted="" id="bg_video"  loop="loop" poster="stellaragency.com/themes/gostellar/images/stellar-video-background-poster.png">
               <source src="video/bgvideo.mp4" type="video/mp4"/>
             </video>
             <div className = "mottos">
