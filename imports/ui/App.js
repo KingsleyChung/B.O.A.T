@@ -1,35 +1,55 @@
-import React ,{ Component } from 'react';
+import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Apps } from '../api/collection.js'
+import { Apps } from '../api/collection.js';
+
+import ImageGallery from 'react-image-gallery';
+import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {currentIndex: 0};
+      }
     render() {
-        //<img className="app-icon" src={this.props.app[0] && this.props.app[0].icon}/>
-        //<span className="app-description">{this.props.app[0] && this.props.app[0].description}</span>
-        return ( 
-            <div className="app-container">
-                <div className="app-cover">
-                    <img className="iPhone-frame" src="image/iPhoneFrame.png"/>
-                    <img className="app-capture" src="image/QinGongShanXueCapture.jpg"/>
-                    <img className="app-code" src={this.props.app[0] && this.props.app[0].code}/>
-                    <h1 className="app-title-text">{this.props.app[0] && this.props.app[0].name}</h1>
-                </div>
-                <div className="app-info-1">
+        console.log(this.state.currentIndex);
+        if (this.props.app[0]) {
+            var background_image = {
+                backgroundImage: 'url(' + this.props.app[0].cover + ')'
+            };
+            return ( 
+                <div className="app-container">
+                    <div className="app-title-cover" style={background_image}>
+                        <div className="app-cover-glass">
+                            <div className="welcom">- Welcom to visit our app -</div>
+                            <div className="app-slogan">{this.props.app[0].slogan}</div>
+                            <div className="line"></div>
+                            <div className="brief-intro">{this.props.app[0].brief}</div>
+                        </div>
+                    </div>
+
                     <button className="go-back">GO BACK</button>
-                    <div className="info-message info-1">{this.props.app[0] && this.props.app[0].info1}</div>
-                    <img className="info-capture info-capture-1" src="image/info-capture-1.jpg"/>
+
+                    <div className="app-demo">
+                        <div className="app-info">
+                            <div className="info-title">{this.props.app[0].info[this.state.currentIndex].title}</div>
+                            <div className="app-info-line"/>
+                            <div className="info-content">{this.props.app[0].info[this.state.currentIndex].content}</div>
+                        </div>
+                        <ImageGallery items={this.props.app[0].captures} 
+                            showBullets={true} 
+                            showThumbnails={false} 
+                            showFullscreenButton={false} 
+                            showNav={false} 
+                            showPlayButton={false}
+                            onSlide={(currentIndex)=>this.setState({currentIndex})}/>
+                        <div className="overflow-image-cover overflow-image-cover-1" />
+                        <div className="overflow-image-cover overflow-image-cover-2" />
+                        <img id="iPhone-frame" src="image/iPhoneFrame.png" />
+                    </div>
                 </div>
-                <div className="app-info-2">
-                    <div className="info-message info-2">{this.props.app[0] && this.props.app[0].info2}</div>
-                    <img className="info-capture info-capture-2" src="image/info-capture-2.jpg"/>
-                </div>
-                <div className="app-info-3">
-                    <div className="info-message info-3">{this.props.app[0] && this.props.app[0].info3}</div>
-                    <img className="info-capture info-capture-3" src="image/info-capture-3.jpg"/>
-                </div>
-            </div>
-            
-        );
+            );
+        }
+        else return null;
     }
 }
 
