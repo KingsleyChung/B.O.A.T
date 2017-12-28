@@ -3,7 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import {Motto} from '../api/collection.js'
 import {MainList} from '../api/collection.js'
 import { withTracker } from 'meteor/react-meteor-data';
-
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 class MainBody extends Component {
 
   jump(item, e) {
@@ -23,11 +23,16 @@ class MainBody extends Component {
             <div className = "mottos">
                 {this.props.motto[0] && this.props.motto[0].text}
             </div>
-            <div>
+            <ReactCSSTransitionGroup
+              transitionName="item"
+              transitionAppear={true}
+              transitionAppearTimeout={1500}
+              transitionEnter={false}
+              transitionLeave={false}>
                 <ul>
                 {listItems}
                 </ul>
-            </div>
+            </ReactCSSTransitionGroup>
         </div>
     );
   }

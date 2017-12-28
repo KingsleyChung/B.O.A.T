@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { withTracker } from 'meteor/react-meteor-data';
 import {MainList} from '../api/collection.js'
+var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
 import Memu from './Memu.js'
 
@@ -52,7 +53,12 @@ class Header extends Component {
                 </div>
                 <button type = "button" onClick={this.toastMenu}>{this.state.isMenuClick ? "取消" : "菜单"}</button>
             </header>
+            <ReactCSSTransitionGroup
+            transitionName="example"
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}>
             {temp}
+            </ReactCSSTransitionGroup>
         </div>
     );
   }
