@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { withTracker } from 'meteor/react-meteor-data';
 import {MainList} from '../api/collection.js'
+import ReactDOM from 'react-dom';
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
-import Memu from './Memu.js'
 
 class Header extends Component {
   constructor(props) {
@@ -18,6 +18,9 @@ class Header extends Component {
     this.setState(prevState => ({
       isMenuClick: !prevState.isMenuClick
     }));
+    if (this.state.isMenuClick) {
+        //ReactDOM.findDOMNode(this).classList.remove(styles.ready);
+    }
  }
  
   goHome() {
@@ -51,7 +54,17 @@ class Header extends Component {
                 <div>
                     <a onClick={this.goHome}>Boat Studio</a>
                 </div>
-                <button type = "button" onClick={this.toastMenu}>{this.state.isMenuClick ? "取消" : "菜单"}</button>
+                <div className="myButton">
+                    <button type = "button"className = {!this.state.isMenuClick ? "readyone" : "cancelone"}   onClick={this.toastMenu}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    <button className = {!this.state.isMenuClick ? "readytwo" : "canceltwo"}   onClick={this.toastMenu}>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
             </header>
             <ReactCSSTransitionGroup
             transitionName="example"

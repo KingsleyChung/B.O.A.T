@@ -45,31 +45,80 @@ header a {
   display:inline-block;
 }
 
-.header button {
+.myButton button {
   transition:color 0.4s;
   position:fixed;
   right:0;
-  margin:0 10px 0 0;
+  margin:0 28px 0 0;
   background-color:transparent;
   border:none;
   opacity:1;
   color:#FFFAFA;
+  width:30px;
+  height:30px;
   outline:0 none !important; blr:expression(this.onFocus=this.blur());
 }
 
-.header button:hover {
-  color:#D02090;
+.myButton:hover span{
+  background-color:#D02090;
 }
+
+.readyone span {
+  opacity:1;
+  transition:1s;
+  width:26px;
+  height:1.4px;
+  background-color:#FFFAFA;
+  display:block;
+  margin:0 0 5px 0;
+}
+
+.cancelone span{
+  transition:1s;
+  opacity:0;
+}
+
+.readytwo span{
+  opacity:0;
+  position:fixed;
+  width:26px;
+  height:1.4px;
+  background-color:#FFFAFA;
+  display:block;
+  right:0px;
+  margin:-2px 24px 10px 0;
+}
+
+.canceltwo span{
+  opacity:1;
+  position:fixed;
+  width:26px;
+  height:1.4px;
+  background-color:#FFFAFA;
+  display:block;
+  right:0px;
+  margin:-2px 24px 10px 0;
+} 
+.canceltwo span:nth-child(1) {
+  transition:1.2s;
+  transform:rotate(35deg);
+}
+
+.canceltwo span:nth-child(2) {
+  transition:1.2s;
+  transform:rotate(-35deg);
+}
+
 .container {
   position: absolute;
   left: 50%;
   top: 50%;
   width:800px;
-  height:200px;
+  height:400px;
   padding: 0px;
   margin-left:-400px;
-  margin-top:-100px;
-  opacity:0.8;
+  margin-top:-200px;
+  opacity:0.7;
   z-index:1;
   color:#FFFAFA;
 }
@@ -77,22 +126,13 @@ header a {
 .mottos {
   text-align:center;
   font-size: 6.5em;
-  margin-bottom:30px;
-  margin-top:-20px;
+  margin-top:108px;
+  margin-bottom:-23px;
+  transition:margin-top 0.7s;
 }
 
-.container a {
-  text-align:center;
-  text-decoration: none;
-  display:block;
-  font-size: 80px;
-  color:#FFFAFA;
-  margin:0 0 20px 0;
-}
-
-.container img {
-  height:110px;
-  width:110px;
+.container:hover .mottos{
+  margin-top:100px;
 }
 
 .container ul {
@@ -110,11 +150,18 @@ header a {
 }
 
 .container li a {
+  text-align:center;
+  text-decoration: none;
+  display:block;
+  font-size: 80px;
+  color:#FFFAFA;
+  margin:0 0 20px 0;
   font-size:28px;
+  transition:color 0.2s ease-in;
 }
+
 .container li a:hover {
   color:#D02090;
-  transition:color 0.1s ease-in;
 }
 
 footer {
@@ -209,13 +256,36 @@ footer {
 
 .item-appear {
   opacity: 0.01;
-  margin-top:23px;
+  margin-top:20px;
 }
 
 .item-appear.item-appear-active {
   opacity: 1;
+  margin-top:14.5px;
+  transition: opacity 0.8s ease-in, margin-top 0.8s ease-in;
+}
+
+.item-enter {
+  opacity: 0.01;
   margin-top:0px;
-  transition: opacity 1.2s ease-in, margin-top 1.2s ease-in;
+
+}
+
+.item-enter.item-enter-active {
+  opacity: 1;
+  margin-top:14.5px;
+  transition: opacity 0.8s ease-in, margin-top 0.8s ease-in;
+}
+
+.item-leave {
+  opacity: 1;
+  margin-top:14.5px;
+  transition: opacity 0.4s ease-in, margin-top 0.4s ease-in;
+}
+
+.item-leave.item-leave-active {
+  opacity: 0.01;
+  margin-top:0px;
 }
 
 .example-enter {
@@ -235,3 +305,4 @@ footer {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
