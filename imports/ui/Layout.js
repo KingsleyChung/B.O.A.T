@@ -8,11 +8,7 @@ export default class Layout extends Component {
         <div>
             <Header />
             {this.props.main}
-            <footer>
-                <div>
-                    <span>© 2018 BOAT Studio<br/></span>
-                </div>
-            </footer>
+            {this.props.footer}
         </div>
     );
   }

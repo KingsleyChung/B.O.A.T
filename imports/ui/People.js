@@ -1,39 +1,46 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-
 import { Peoples } from '../api/collection.js';
+import { render } from 'react-dom';
+import PeopleCard from './PeopleCard';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class People extends Component {
-    renderPeoples() {
-        return this.props.peoples.map((people) => {
-            return (
-                <div key={people._id} className="people-container">
-                    <img className="people-icon" src={people.icon}/>
-                    <h2 className="people-name">{people.name}</h2>
-                    <h3 className="people-gender">{people.gender}</h3>
-                    <h3 className="people-age">{people.age}</h3>
-                </div>
-            );
-        });
+    renderCards() {
+        return this.props.peoples.map((people) => (
+            <div className="people-card">
+                <MuiThemeProvider>
+                    <PeopleCard people={people}/>
+                </MuiThemeProvider>
+            </div>
+        ));
     }
 
     render() {
+        var background_image = {
+            backgroundImage: 'url(image/PeopleTitleCover.jpg)'
+        };
         return (
-            <div className="page-container">
-                <div className="title-cover">
-                    <h1 className="title-text">People</h1>
+            <div className="peoples-container">
+                <div className="people-title-cover" style={background_image}>
+                    <div className="people-cover-glass">
+                        <div className="welcom">- Welcom to our studio -</div>
+                        <div className="people-slogan">团结互助  共创未来</div>
+                        <div className="line"></div>
+                        <div className="brief-intro">齐集各个方向的专业人才</div>
+                    </div>
                 </div>
-                <div className="people-list">
-                    {this.props.peoples && this.renderPeoples()}
+                <div className="people-card-container">
+                    {this.renderCards()}
                 </div>
             </div>
-        );
+        )
     }
 }
 
 export default withTracker(() => {
     Meteor.subscribe('peoples');
     return {
-        peoples: Peoples.find({}).fetch(),
-    };
+        peoples: Peoples.find().fetch(),
+    }
 })(People);

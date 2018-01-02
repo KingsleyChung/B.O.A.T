@@ -196,3 +196,70 @@
 .overflow-image-cover-2 {
   left: 292px;
 }
+
+.appintro-enter {
+  opacity: 0.01;
+}
+ 
+.appintro-enter.appintro-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+.appintro-leave {
+  opacity: 1;
+}
+
+.appintro-leave.appintro-leave-active {
+  opacity: 0.01;
+  transition: opacity 0ms ease-in;
+}
+
+
+.peoples-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.people-title-cover {
+  width: 100%;
+  height: 100%;
+  height: 600px;
+  background-size: 100%;
+  color: white;
+}
+
+.people-cover-glass {
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  background-color: rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.people-slogan {
+  font-size: 4em;
+  font-weight: bold;
+}
+
+.people-card-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: space-around;
+  flex-wrap: wrap;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.people-card {
+  width: 360px;
+}

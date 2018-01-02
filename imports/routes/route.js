@@ -7,7 +7,7 @@ import MainBody from '../ui/Main_body.js'
 import Aboutus from '../ui/Aboutus.js'
 import App from '../ui/App.js'
 import People from '../ui/People.js'
-
+import MainFooter from '../ui/Main_footer.js'
 FlowRouter.subscriptions = function() {
     this.register('mainList', Meteor.subscribe('mainList'));
 };
@@ -20,7 +20,7 @@ FlowRouter.route('/', {
     this.register('mainList', Meteor.subscribe('mainList'));
   },
     
-  action() { mount(Layout, { main: <MainBody/>,}); },
+  action() { mount(Layout, { main: <MainBody/>,footer:<MainFooter text = {""}/>,}); },
 });
 
 FlowRouter.route('/:page', {
@@ -28,13 +28,13 @@ FlowRouter.route('/:page', {
   
   action(params, queryParams) {
     if (params.page == 'Products') {
-      mount(Layout, { main: <App/>,});    
+      mount(Layout, { main: <App/>,footer:<MainFooter text = {"Products"}/>,});    
     } 
     else if (params.page == 'About us') {
-       mount(Layout, { main: <Aboutus/>,});    
+       mount(Layout, { main: <Aboutus/>,footer:<MainFooter text = {"About us"}/>,});    
     } 
     else if (params.page == "People") {
-       mount(Layout, { main: <People/>,});     
+       mount(Layout, { main: <People/>,footer:<MainFooter text = {"People"}/>,});     
     } else {
        FlowRouter.go('mainPage.show');
     }
