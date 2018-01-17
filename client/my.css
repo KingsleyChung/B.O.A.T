@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   background-attachment: fixed;
   color:#FFFAFA;
-
+  background-image: url("image/preload.png");
   position: absolute;
   top: 0;
   bottom: 0;
