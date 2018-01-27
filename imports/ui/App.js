@@ -6,6 +6,9 @@ import ImageGallery from 'react-image-gallery';
 import "../../node_modules/react-image-gallery/styles/css/image-gallery.css";
 var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
 
+import TestCarousel from './TestCarousel';
+import { Carousel } from 'react-bootstrap';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -40,18 +43,26 @@ class App extends Component {
             };
             return ( 
                 <div className="app-container">
-                    <div className="app-title-cover" style={background_image}>
+                    {/* <div className="app-title-cover" style={background_image}>
                         <div className="app-cover-glass">
                             <div className="welcom">- Welcom to visit our app -</div>
                             <div className="app-slogan">{this.props.app[0].slogan}</div>
                             <div className="line"></div>
                             <div className="brief-intro">{this.props.app[0].brief}</div>
                         </div>
-                    </div>
+                    </div> */}
+
+                    <TestCarousel items={this.props.app[0].covers} class="covers"/>
 
                     <button className="go-back">GO BACK</button>
 
                     <div className="app-demo">
+                        <div className="app-info">{this.renderInfo()}</div>
+                        <img id="iPhone-frame" src="image/iPhoneFrame.png" />
+                        <TestCarousel items={this.props.app[0].captures} class="captures"/>
+                    </div>
+
+                    {/* <div className="app-demo">
                         <div className="app-info">{this.renderInfo()}</div>
                         <ImageGallery items={this.props.app[0].captures} 
                             showBullets={true} 
@@ -63,7 +74,7 @@ class App extends Component {
                         <div className="overflow-image-cover overflow-image-cover-1" />
                         <div className="overflow-image-cover overflow-image-cover-2" />
                         <img id="iPhone-frame" src="image/iPhoneFrame.png" />
-                    </div>
+                    </div> */}
                 </div>
             );
         }

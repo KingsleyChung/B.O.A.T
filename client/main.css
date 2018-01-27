@@ -163,7 +163,7 @@
 #iPhone-frame {
   align-self: flex-end;
   position: relative;
-  left: -80px;
+  left: 359px;
 }
 
 .image-gallery-image img {
@@ -262,4 +262,17 @@
 
 .people-card {
   width: 360px;
+}
+
+.captures {
+  display: flex;
+  justify-self: end;
+  align-self: end;
+  transform: scale(0.715);
+  position: relative;
+  top: 20px;
+}
+
+.captures .carousel-control {
+  opacity: 0;
 }
